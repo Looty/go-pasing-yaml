@@ -1,0 +1,24 @@
+name: Arka
+address: India
+phone: 100
+workfromhome: true
+mail: abc@hotmail.com
+internships:
+    - JournalDev
+    - MNO
+    - ABC
+    - XYZ
+education:
+    msc: 7.6
+    bsc: 8.1
+    xii: 9.333
+    courses:
+        - name: Udemy
+          score: 15
+        - name: Coursera
+          score: 3
+    references: Mr. John, Doe
+languages:
+    english: 5
+    russian: 2
+    italian: 3
