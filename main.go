@@ -15,7 +15,7 @@ type CV struct {
 	Mail         string
 	Internships  []string
 	Education    Education
-	Languages    map[string]string
+	Languages    map[string]int
 }
 
 type Education struct {
@@ -31,24 +31,22 @@ type Course struct {
 	Score int
 }
 
-func (file *CV) Parse(data []byte) error {
-	return yaml.Unmarshal(data, file)
-}
-
 func main() {
 	// Load the file; returns []byte
 	f, err := os.ReadFile("example.yaml")
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("error: %v", err)
 	}
 
 	var cv CV
 
 	// Unmarshal our input YAML file into empty CV (var cv)
-	if err := cv.Parse(f); err != nil {
-		log.Fatal(err)
+	err = yaml.Unmarshal(f, &cv)
+	if err != nil {
+		log.Fatalf("error: %v", err)
 	}
 
 	// Print out the new struct
-	fmt.Printf("%+v\n", cv)
+	fmt.Printf("--- cv:%+v\n", cv)
+	fmt.Printf("--- cv dump:\n%s\n\n", string(f))
 }
